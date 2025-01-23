@@ -128,11 +128,11 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#f8f9fa', // Match the app background color
+    backgroundColor: '#F8F9FA', // Match the app background color
   },
   container: {
     flex: 0,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#DBDCDC',
   },
   header: {
     flexDirection: 'row',
