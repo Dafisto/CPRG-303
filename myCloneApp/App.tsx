@@ -93,7 +93,7 @@ export default function App() {
         </View>
 
         {/* New Registration Container*/}
-        <View style={styles.insideContent}>
+        <View style={styles.bottomContent}>
           <View style={styles.bottomContainer}>
             <Text style={styles.title}>Register a new card for online</Text>
             <Text style={styles.title}>banking</Text>
@@ -124,7 +124,7 @@ export default function App() {
     </SafeAreaView>
   );
 }
-
+{/* Unable to get shadow effect to style onto boarder of sign in container, will ask teacher */}
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -162,6 +162,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginTop: 16,
     marginBottom: 7,
+    shadowColor: '#757575',
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width:1
+    }
   },
   title: {
     fontSize: 18,
@@ -196,6 +203,7 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     color: '#0073e6',
+    marginTop: 10,
     marginBottom: 16,
     fontWeight: 'bold',
   },
@@ -272,5 +280,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#0073e6',
     paddingVertical: 15,
+  },
+  bottomContent: {
+    paddingHorizontal: 16,
   },
 });
