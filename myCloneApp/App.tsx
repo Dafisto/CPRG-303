@@ -5,7 +5,9 @@ export default function App() {
   const showAlert = () => {
     Alert.alert('Sign In Button pressed');
   };
-
+{/* Author: Chris Reid */}
+{/* Author: Vanshita Munday */}
+{/* Version: 2025-01-22*/}
 
   return (
     <SafeAreaView style={styles.safeArea}>
