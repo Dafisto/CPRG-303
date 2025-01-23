@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Image, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 
@@ -6,6 +5,7 @@ export default function App() {
   const showAlert = () => {
     Alert.alert('Sign In Button pressed');
   };
+
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -29,42 +29,94 @@ export default function App() {
             />
           </View>
         </View>
+        <View style={styles.insideContent}>
+          {/* Sign-In Section */}
+          <View style={styles.signInContainer}>
+            <Text style={styles.title}>Sign in to Online Banking</Text>
 
-        {/* Sign-In Section */}
-        <View style={styles.signInContainer}>
-          <Text style={styles.title}>Sign in to Online Banking</Text>
+            {/* Dropdown Placeholder */}
+            <Text style={styles.label}>Choose a card</Text>
+            <View style={styles.dropdown}>
+              <View style={styles.icons}>
+                <View style={styles.insideText}>
+                  <Text style={styles.dropdownText}>Sign in with a different card</Text>
+                  <Image
+                    source={require('./assets/arrow.png')}
+                    style={styles.iconImage}
+                  />
+                </View>
+              </View>
+            </View>
 
-          {/* Dropdown Placeholder */}
-          <Text style={styles.label}>Choose a card</Text>
-          <View style={styles.dropdown}>
-            <Text style={styles.dropdownText}>Sign in with a different card</Text>
+            {/* Card Number Input */}
+            <Text style={styles.label}>Card number</Text>
+            <TextInput
+              style={styles.input2}
+              placeholder=""
+            />
+            <Text style={styles.belowText}>Enter your 16-digit card number</Text>
+            
+            {/* Remember Card */}
+            <View style={styles.rememberContainer}>
+              <TextInput
+                style={styles.rememberBox}
+                placeholder=""
+              />
+              <Text style={styles.rememberText}>Remember card</Text>
+              <Image
+                source={require('./assets/i.png')}
+                style={styles.iImage}
+              />
+            </View>
+
+            {/* Password Input */}
+            <Text style={styles.label}>Password</Text>
+              <View style={styles.dropdown}>
+                <View style={styles.icons}>
+                  <View style={styles.eyeBox}>
+                    <Image
+                      source={require('./assets/show.png')}
+                      style={styles.eyeImage}
+                    />
+                  </View>
+                </View>
+              </View>
+            <Text style={styles.forgotPassword}>Forgot your password?</Text>
+
+            {/* Sign In Button */}
+            <TouchableOpacity style={styles.signInButton} onPress={showAlert}>
+              <Text style={styles.signInButtonText}>SIGN IN</Text>
+            </TouchableOpacity>
           </View>
+        </View>
 
-          {/* Card Number Input */}
-          <Text style={styles.label}>Card number</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your 16-digit card number"
-          />
-
-          {/* Remember Card */}
-          <View style={styles.rememberContainer}>
-            <Text style={styles.label}>Remember card</Text>
+        {/* New Registration Container*/}
+        <View style={styles.insideContent}>
+          <View style={styles.bottomContainer}>
+            <Text style={styles.title}>Register a new card for online</Text>
+            <Text style={styles.title}>banking</Text>
           </View>
-
-          {/* Password Input */}
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter your password"
-            secureTextEntry
-          />
-          <Text style={styles.forgotPassword}>Forgot your password?</Text>
-
-          {/* Sign In Button */}
-          <TouchableOpacity style={styles.signInButton} onPress={showAlert}>
-            <Text style={styles.signInButtonText}>SIGN IN</Text>
-          </TouchableOpacity>
+        </View>
+        {/* Footer for page*/}
+        <View style={styles.footer}>
+          <View style={styles.icons}>
+            <Image
+              source={require('./assets/options.png')}
+              style={styles.iconImage}
+              />
+          </View>
+          <View style={styles.icons}>
+            <Image
+              source={require('./assets/center.png')}
+              style={styles.iconImage}
+              />
+          </View>
+          <View style={styles.icons}>
+            <Image
+              source={require('./assets/back.png')}
+              style={styles.iconImage}
+            />
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -77,17 +129,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa', // Match the app background color
   },
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: '#f8f9fa',
-    padding: 16,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#0073e6',
-    padding: 16,
-    borderRadius: 8,
+    paddingTop: 24,
+    paddingHorizontal: 16,
+    paddingBottom: 8,
   },
   logo: {
     width: 80,
@@ -100,13 +152,14 @@ const styles = StyleSheet.create({
   iconImage: {
     width: 24,
     height: 24,
-    marginLeft: 16,
+    marginHorizontal: 14,
   },
   signInContainer: {
     backgroundColor: '#fff',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 4,
     marginTop: 16,
+    marginBottom: 7,
   },
   title: {
     fontSize: 18,
@@ -125,33 +178,97 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   dropdownText: {
-    color: '#555',
+    fontWeight: '400',
   },
   input: {
     borderWidth: 1,
     borderColor: '#ddd',
-    padding: 8,
+    padding:8,
     borderRadius: 4,
     marginBottom: 16,
   },
   rememberContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     marginBottom: 16,
   },
   forgotPassword: {
     color: '#0073e6',
     marginBottom: 16,
+    fontWeight: 'bold',
   },
   signInButton: {
     backgroundColor: '#0073e6',
-    padding: 12,
-    borderRadius: 4,
+    padding: 20,
+    borderRadius: 35,
     alignItems: 'center',
     marginTop: 16,
-  },
+    marginHorizontal: 30,
+    marginBottom: 16,
+    },
   signInButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  insideText: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  belowText: {
+    opacity: 0.5,
+    fontSize: 13,
+    paddingTop: 0,
+  },
+  insideContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+  },
+  input2: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    padding: 8,
+    borderRadius: 4,
+    marginBottom: 3,
+  },
+  rememberBox: {
+    borderWidth: 2,
+    borderColor: '#757575',
+    padding: 4,
+    borderRadius: 2,
+    marginTop: 16,
+    marginRight: 13,
+    width: 25,
+    height: 25,
+  },
+  eyeBox: {
+    flex: 1,
+    flexDirection: 'row-reverse',
+  },
+  rememberText: {
+    fontWeight: '400',
+    paddingBottom: 4,
+  },
+  iImage: {
+    width: 24,
+    height: 24,
+    marginHorizontal: 7,
+  },
+  eyeImage: {
+    width: 24,
+    height: 24,
+  },
+  bottomContainer: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    borderRadius: 4,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    backgroundColor: '#0073e6',
+    paddingVertical: 15,
   },
 });
